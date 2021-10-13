@@ -6,23 +6,38 @@ namespace HeadsTails
     {
         static void Main(string[] args)
         {
-            
+            ConditionsKey();
+
+
         }
-        static void Rand()
+        static void TossACoin()
         {
             Random rnd = new Random();
-            int RandomNumber = rnd.Next(0, 1);
-            Console.WriteLine("Press 'Enter' to flip a coin or 'q' for quit!");
-            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            int RandomNumber = rnd.Next(2);
+            if(RandomNumber == 0)
             {
-                Console.WriteLine("draw");
+                Console.WriteLine("You drew HEADS"); 
             }
-            else if (Console.ReadKey().Key == ConsoleKey.Q) { }
             else
             {
-                Console.WriteLine("You choosed wrong letter, try again");
+                Console.WriteLine("You drew TAILS");
             }
         }
+        static void ConditionsKey()
+        {
+            Console.WriteLine("Press 'Enter' to flip a coin or 'Tab' to quit!");
+            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            {
+                TossACoin();
+            }
+            else if (Console.ReadKey().Key != ConsoleKey.Enter) 
+            {
+                Console.WriteLine("You choosed wrong Key, try again");
+
+            }
+            else{}
+        }
+
 
     }
 }

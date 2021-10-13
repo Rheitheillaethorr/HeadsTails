@@ -22,20 +22,33 @@ namespace HeadsTails
             {
                 Console.WriteLine("You drew TAILS");
             }
-        }
-        static void ConditionsKey()
-        {
-            Console.WriteLine("Press 'Enter' to flip a coin or 'Tab' to quit!");
-            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            Console.WriteLine("Do you want to try again?");
+            Console.WriteLine("'yes' or 'no'");
+            string choice = Console.ReadLine();
+            if(choice == "yes")
             {
                 TossACoin();
             }
-            else if (Console.ReadKey().Key != ConsoleKey.Enter) 
+            else { Console.WriteLine("Thanks you for cooperation"); }
+        }
+        static void ConditionsKey()
+        {
+            Console.WriteLine("What i have to do now?");
+            Console.WriteLine("'draw' or 'quit'");
+            string decision = Console.ReadLine();
+            if (decision == "draw")
             {
-                Console.WriteLine("You choosed wrong Key, try again");
-
+                TossACoin();
             }
-            else{}
+            else if (decision == "quit") 
+            {
+                Console.WriteLine("Thanks you for cooperation");
+            }
+            else
+            {
+                Console.WriteLine("You choosed wrong command, try again");
+                ConditionsKey();
+            }
         }
 
 
